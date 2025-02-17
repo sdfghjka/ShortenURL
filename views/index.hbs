@@ -1,27 +1,33 @@
 <div class="container">
-    <div class="text-center mb-4">
-        <img src="/image/IMAGE.png" class="rounded logo-img" alt="Logo">
-        <h2 class="mt-2">URL Shortener</h2>
-    </div>
+  <div class="text-center mb-4">
+    <img src="/image/IMAGE.png" class="rounded logo-img" alt="Logo" />
+    <h2 class="mt-2">URL Shortener</h2>
+  </div>
 
-    <div class="card p-4">
-        <form action="/submit" method="POST">
-            <div class="input-group">
-                <input name="inputURL" type="text" class="form-control" placeholder="Enter URL here..." required>
-                <button class="btn btn-primary" type="submit">Shorten</button>
-            </div>
-        </form>
-    </div>
-      {{#if url}}  
-<h3 class="mt-4">Latest Short URLs</h3>
+  <div class="card p-4">
+    <form id="urlForm">
+      <div class="input-group">
+        <input
+          id="inputURL"
+          name="inputURL"
+          type="text"
+          class="form-control"
+          placeholder="Enter URL here..."
+          required
+        />
+        <button class="btn btn-primary" type="submit">Shorten</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if urls}}
+    <h3 class="mt-4">Latest Short URLs</h3>
     <ul class="list-group">
-      
-        {{#each urls}}
+      {{#each urls}}
         <li class="list-group-item">
-            <a href="{{this.shortUrl}}" target="_blank">{{this.shortUrl}}</a>
+          <a href="{{this}}" target="_blank">{{this}}</a>
         </li>
-        {{/each}}
-      
-    </ul>{{/if}}
-    </div>
+      {{/each}}
+    </ul>
+  {{/if}}
 </div>

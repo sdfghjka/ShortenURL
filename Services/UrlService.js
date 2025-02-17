@@ -32,18 +32,5 @@ module.exports = class UrlService {
     await URLsModel.findByIdAndDelete(id);
     return 1;
   }
-  static async setUrl(shortCode, fullUrl) {
-    return URLsModel.create({ shortCode, fullUrl });
-  }
 
-
-  static async getFullUrl(shortCode) {
-    const urlData = await URLsModel.findOne({ shortCode });
-    return urlData ? urlData.fullUrl : null;
-  }
-
-
-  static async getLatestUrls(count) {
-    return URLsModel.find().sort({ createdAt: -1 }).limit(count);
-  }
 };
